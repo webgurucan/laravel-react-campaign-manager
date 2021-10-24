@@ -181,5 +181,5 @@ export default class CampaignForm extends React.Component {
                 </div>
             </div>
         );
-    }
+    };
 }
