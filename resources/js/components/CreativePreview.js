@@ -5,6 +5,11 @@ import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+/**
+ * Creative Preview Component
+ * It will show the preview of creatives in a campaign.
+ * It will popup modal and show the creatives in slideshow.
+ */
 export default class CreativePreview extends React.Component {
     constructor(props) {
         super(props);
@@ -24,7 +29,8 @@ export default class CreativePreview extends React.Component {
         this.setState({ show: true });
     };
 
-    componentDidUpdate = (prevProps, prevState, snapshot) => {
+    componentDidUpdate = (prevProps) => {
+        //If you receive new props, it will render the component again
         if (prevProps.show !== this.props.show) {
             this.setState({
                 show: this.props.show,

@@ -17,8 +17,8 @@ class CampaignResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'from' => $this->from?date('m/d/Y', strtotime($this->from)): '',
-            'to' => $this->to?date('m/d/Y', strtotime($this->to)):'',
+            'from' => $this->from ? date('m/d/Y', strtotime($this->from)) : '',
+            'to' => $this->to ? date('m/d/Y', strtotime($this->to)) : '',
             'total_budget' => $this->total_budget,
             'daily_budget' => $this->daily_budget,
             'creatives' => $this->creatives,

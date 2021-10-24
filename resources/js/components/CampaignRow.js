@@ -1,6 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+/**
+ * Campaign Row Component
+ * It will draw a component in list view
+ */
 export default class CampaignRow extends React.Component {
     constructor(props) {
         super(props);
@@ -12,9 +16,9 @@ export default class CampaignRow extends React.Component {
 
     onPreviewClick = () => {
         this.props.onPreviewEvent(this.state.campaign.creatives);
-    }
+    };
 
-    render() {
+    render = () => {
         let { campaign } = this.state;
 
         return (
@@ -41,7 +45,10 @@ export default class CampaignRow extends React.Component {
                         role="group"
                         aria-label="First group"
                     >
-                        <Link to={'/edit/' + campaign.id} className="btn btn-primary btn-xs">
+                        <Link
+                            to={"/edit/" + campaign.id}
+                            className="btn btn-primary btn-xs"
+                        >
                             Edit
                         </Link>
                     </div>

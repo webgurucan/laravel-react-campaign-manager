@@ -22,11 +22,11 @@ class Campaign extends Model
      * @param array|string $value
      * @return string
      */
-    public function setCreativesAttribute($value) {
+    public function setCreativesAttribute($value)
+    {
         if (empty($value)) {
             $value = null;
-        }
-        else if (is_array($value)) {
+        } else if (is_array($value)) {
             $value = implode("|", $value);
         }
         $this->attributes['creatives'] = $value;
@@ -37,7 +37,8 @@ class Campaign extends Model
      * @param string $value
      * @return array $creatives
      */
-    public function getCreativesAttribute($value) {
+    public function getCreativesAttribute($value)
+    {
         if (empty($value)) {
             return [];
         }
@@ -48,7 +49,8 @@ class Campaign extends Model
      * Convert data format from mm/dd/yyyy to yyyy-mm-dd
      * @param string $value date format
      */
-    public function setFromAttribute($value) {
+    public function setFromAttribute($value)
+    {
         if (isset($value))
             $this->attributes['from'] = date('Y-m-d', strtotime($value));
     }
@@ -58,7 +60,8 @@ class Campaign extends Model
      * @param string $value data format
      * @return string $value data format
      */
-    public function getFromAttribute($value) {
+    public function getFromAttribute($value)
+    {
         if (isset($value))
             return date('m/d/Y', strtotime($value));
         return $value;
@@ -68,7 +71,8 @@ class Campaign extends Model
      * Convert data format from mm/dd/yyyy to yyyy-mm-dd
      * @param string $value date format
      */
-    public function setToAttribute($value) {
+    public function setToAttribute($value)
+    {
         if (isset($value))
             $this->attributes['to'] = date('Y-m-d', strtotime($value));
     }
@@ -78,7 +82,8 @@ class Campaign extends Model
      * @param string $value data format
      * @return string $value data format
      */
-    public function getToAttribute($value) {
+    public function getToAttribute($value)
+    {
         if (isset($value))
             return date('m/d/Y', strtotime($value));
         return $value;

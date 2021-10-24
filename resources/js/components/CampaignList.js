@@ -4,6 +4,11 @@ import { Link } from "react-router-dom";
 import CampaignRow from "./CampaignRow";
 import CreativePreview from "./CreativePreview";
 
+/**
+ * Campaign List Component
+ * It will get all campaigns from server and render on frontend.
+ * It will render campaign in table format
+ */
 export default class CampaignList extends Component {
     constructor(props) {
         super(props);
@@ -21,14 +26,13 @@ export default class CampaignList extends Component {
     doPreviewCreatives = (creatives) => {
         if (Array.isArray(creatives) && creatives.length > 0) {
             this.setState({ previewCreatives: creatives, showPreview: true });
-        }
-        else {
+        } else {
             this.setState({ previewCreatives: [], showPreview: false });
         }
     };
 
     //Get campaigns at the beginning
-    componentDidMount() {
+    componentDidMount = () => {
         axios
             .get("/api/campaigns")
             .then((response) => {
@@ -41,10 +45,10 @@ export default class CampaignList extends Component {
             .finally(() => {
                 this.setState({ isLoading: false });
             });
-    }
+    };
 
     //Render View
-    render() {
+    render = () => {
         const { isLoading, campaigns, error, showPreview, previewCreatives } =
             this.state;
         return (
@@ -103,5 +107,5 @@ export default class CampaignList extends Component {
                 </div>
             </>
         );
-    }
+    };
 }

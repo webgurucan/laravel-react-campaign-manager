@@ -1,6 +1,12 @@
 import React from "react";
 import axios from "axios";
+import toastr from "toastr";
 
+/**
+ * Creative File Upload Component
+ * You can upload files using this component.
+ * It supports only jpg, png, gif images
+ */
 export default class CreativeFileUpload extends React.Component {
     constructor(props) {
         super(props);
@@ -52,13 +58,18 @@ export default class CreativeFileUpload extends React.Component {
 
                     //Update parent status
                     this.props.onUpdateFile(creatives);
+                    toastr["success"](result.message);
+                } else {
+                    toastr["error"](result.message);
                 }
             })
-            .catch((error) => {})
+            .catch((error) => {
+                toastr["error"](error.message);
+            })
             .finally(() => {});
     };
 
-    render() {
+    render = () => {
         let { creatives } = this.state;
 
         return (
@@ -80,5 +91,5 @@ export default class CreativeFileUpload extends React.Component {
                 </div>
             </>
         );
-    }
+    };
 }

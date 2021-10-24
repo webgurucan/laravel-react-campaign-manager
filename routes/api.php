@@ -3,8 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Resources\CampaignResource;
 use App\Models\Campaign;
+use App\Http\Resources\CampaignResource;
 use App\Http\Controllers\Api\CampaignController;
 
 
@@ -23,12 +23,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//Get all campaigns
 Route::get('/campaigns', function () {
     return CampaignResource::collection(Campaign::orderBy('name')->get());
 });
 
+//Get a campaign
 Route::get('/campaign/{id}', [CampaignController::class, 'view']);
 
+//Upload multi files
 Route::post('/campaign/uploadfile', [CampaignController::class, 'upload']);
-Route::post('/campaign/store', [CampaignController::class, 'store']);
 
+//Add / Update a campaign
+Route::post('/campaign/store', [CampaignController::class, 'store']);

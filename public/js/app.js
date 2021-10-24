@@ -6093,9 +6093,7 @@ module.exports = {
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 /**
- * Next, we will create a fresh React component instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
+ * Start with index
  */
 
 
@@ -6168,10 +6166,6 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
@@ -6186,9 +6180,15 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
+
+
+/**
+ * Main APP Component
+ */
 
 
 
@@ -6199,14 +6199,17 @@ var App = /*#__PURE__*/function (_Component) {
   var _super = _createSuper(App);
 
   function App() {
+    var _this;
+
     _classCallCheck(this, App);
 
-    return _super.apply(this, arguments);
-  }
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
 
-  _createClass(App, [{
-    key: "render",
-    value: function render() {
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    _defineProperty(_assertThisInitialized(_this), "render", function () {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.BrowserRouter, {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: "container",
@@ -6234,8 +6237,10 @@ var App = /*#__PURE__*/function (_Component) {
           })
         })
       });
-    }
-  }]);
+    });
+
+    return _this;
+  }
 
   return App;
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
@@ -6264,10 +6269,6 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
@@ -6282,9 +6283,16 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
+
+
+/**
+ * Campaign Conainter Component
+ * It is wrapper of campaign form.
+ */
 
 
 
@@ -6301,31 +6309,9 @@ var CampaignContainer = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, CampaignContainer);
 
     _this = _super.call(this, props);
-    var campaignId = props.match.params.campaignId;
-    _this.state = {
-      campaignId: campaignId === undefined ? "" : campaignId,
-      campaign: {
-        id: "",
-        name: "",
-        from: "",
-        to: "",
-        total_budget: 0,
-        daily_budget: 0,
-        creatives: []
-      },
-      error: null,
-      isLoading: true
-    };
-    return _this;
-  } //Get a campaign data at the beginning
 
-
-  _createClass(CampaignContainer, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      var campaignId = this.state.campaignId;
+    _defineProperty(_assertThisInitialized(_this), "componentDidMount", function () {
+      var campaignId = _this.state.campaignId;
 
       if (campaignId !== "") {
         //You should get campaign from server.
@@ -6335,7 +6321,7 @@ var CampaignContainer = /*#__PURE__*/function (_React$Component) {
           if (result.success === true) {
             var campaign = result.data;
 
-            _this2.setState({
+            _this.setState({
               campaign: campaign,
               error: null
             });
@@ -6345,24 +6331,23 @@ var CampaignContainer = /*#__PURE__*/function (_React$Component) {
         })["catch"](function (error) {
           toastr["error"](result.message);
 
-          _this2.setState({
+          _this.setState({
             error: error.message
           });
         })["finally"](function () {
-          _this2.setState({
+          _this.setState({
             isLoading: false
           });
         });
       } else {
-        this.setState({
+        _this.setState({
           isLoading: false
         });
       }
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this$state = this.state,
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "render", function () {
+      var _this$state = _this.state,
           campaignId = _this$state.campaignId,
           campaign = _this$state.campaign,
           isLoading = _this$state.isLoading,
@@ -6391,8 +6376,26 @@ var CampaignContainer = /*#__PURE__*/function (_React$Component) {
           }()
         })]
       });
-    }
-  }]);
+    });
+
+    var _campaignId = props.match.params.campaignId;
+    _this.state = {
+      campaignId: _campaignId === undefined ? "" : _campaignId,
+      campaign: {
+        id: "",
+        name: "",
+        from: "",
+        to: "",
+        total_budget: 0,
+        daily_budget: 0,
+        creatives: []
+      },
+      error: null,
+      isLoading: true
+    };
+    return _this;
+  } //Get a campaign data at the beginning
+
 
   return CampaignContainer;
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
@@ -6428,10 +6431,6 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
@@ -6455,6 +6454,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
+/**
+ * Campaign Form Component
+ * You can edit form including upload too
+ */
 
 
 
@@ -6541,29 +6545,14 @@ var CampaignForm = /*#__PURE__*/function (_React$Component) {
       })["finally"](function () {});
     });
 
-    _this.state = {
-      campaign: props.campaign
-    };
-    _this.onChangeName = _this.onChangeName.bind(_assertThisInitialized(_this));
-    _this.onChangeFromDate = _this.onChangeFromDate.bind(_assertThisInitialized(_this));
-    _this.onChangeToDate = _this.onChangeToDate.bind(_assertThisInitialized(_this));
-    _this.onChangeDailyBudget = _this.onChangeDailyBudget.bind(_assertThisInitialized(_this));
-    _this.onChangeTotalBudget = _this.onChangeTotalBudget.bind(_assertThisInitialized(_this));
-    _this.updateCreatives = _this.updateCreatives.bind(_assertThisInitialized(_this));
-    _this.handleFormSubmit = _this.handleFormSubmit.bind(_assertThisInitialized(_this));
-    return _this;
-  }
-
-  _createClass(CampaignForm, [{
-    key: "render",
-    value: function render() {
-      var campaign = this.state.campaign;
+    _defineProperty(_assertThisInitialized(_this), "render", function () {
+      var campaign = _this.state.campaign;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
         className: "row justify-content-md-center",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
           className: "col-md-6",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("form", {
-            onSubmit: this.handleFormSubmit,
+            onSubmit: _this.handleFormSubmit,
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
               className: "form-group",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
@@ -6571,7 +6560,7 @@ var CampaignForm = /*#__PURE__*/function (_React$Component) {
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
                 type: "text",
                 className: "form-control",
-                onChange: this.onChangeName,
+                onChange: _this.onChangeName,
                 value: campaign.name
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
@@ -6584,7 +6573,7 @@ var CampaignForm = /*#__PURE__*/function (_React$Component) {
                     children: "From"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)((react_datepicker__WEBPACK_IMPORTED_MODULE_7___default()), {
                     selected: campaign.from !== "" && new Date(campaign.from),
-                    onChange: this.onChangeFromDate,
+                    onChange: _this.onChangeFromDate,
                     dateFormat: "MM/dd/yyyy",
                     className: "form-control"
                   })]
@@ -6597,7 +6586,7 @@ var CampaignForm = /*#__PURE__*/function (_React$Component) {
                     children: "To"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)((react_datepicker__WEBPACK_IMPORTED_MODULE_7___default()), {
                     selected: campaign.to !== "" && new Date(campaign.to),
-                    onChange: this.onChangeToDate,
+                    onChange: _this.onChangeToDate,
                     dateFormat: "MM/dd/yyyy",
                     className: "form-control"
                   })]
@@ -6614,7 +6603,7 @@ var CampaignForm = /*#__PURE__*/function (_React$Component) {
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
                     type: "number",
                     className: "form-control",
-                    onChange: this.onChangeDailyBudget,
+                    onChange: _this.onChangeDailyBudget,
                     value: campaign.daily_budget
                   })]
                 })
@@ -6625,7 +6614,7 @@ var CampaignForm = /*#__PURE__*/function (_React$Component) {
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
                   type: "number",
                   className: "form-control",
-                  onChange: this.onChangeTotalBudget,
+                  onChange: _this.onChangeTotalBudget,
                   value: campaign.total_budget
                 })]
               })]
@@ -6636,7 +6625,7 @@ var CampaignForm = /*#__PURE__*/function (_React$Component) {
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_CreativeFileUpload__WEBPACK_IMPORTED_MODULE_2__["default"], {
                   creatives: campaign.creatives,
-                  onUpdateFile: this.updateCreatives
+                  onUpdateFile: _this.updateCreatives
                 })
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
@@ -6651,8 +6640,21 @@ var CampaignForm = /*#__PURE__*/function (_React$Component) {
           })
         })
       });
-    }
-  }]);
+    });
+
+    _this.state = {
+      campaign: props.campaign
+    };
+    _this.onChangeName = _this.onChangeName.bind(_assertThisInitialized(_this));
+    _this.onChangeFromDate = _this.onChangeFromDate.bind(_assertThisInitialized(_this));
+    _this.onChangeToDate = _this.onChangeToDate.bind(_assertThisInitialized(_this));
+    _this.onChangeDailyBudget = _this.onChangeDailyBudget.bind(_assertThisInitialized(_this));
+    _this.onChangeTotalBudget = _this.onChangeTotalBudget.bind(_assertThisInitialized(_this));
+    _this.updateCreatives = _this.updateCreatives.bind(_assertThisInitialized(_this));
+    _this.handleFormSubmit = _this.handleFormSubmit.bind(_assertThisInitialized(_this));
+    return _this;
+  } //Change Event Definition
+
 
   return CampaignForm;
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
@@ -6681,10 +6683,6 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
@@ -6704,6 +6702,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
+/**
+ * Campaign List Component
+ * It will get all campaigns from server and render on frontend.
+ * It will render campaign in table format
+ */
 
 
 
@@ -6735,48 +6739,27 @@ var CampaignList = /*#__PURE__*/function (_Component) {
       }
     });
 
-    _this.state = {
-      campaigns: {},
-      error: null,
-      isLoading: true,
-      previewCreatives: [],
-      showPreview: false
-    };
-    _this.doPreviewCreatives = _this.doPreviewCreatives.bind(_assertThisInitialized(_this));
-    return _this;
-  } //Show preview of creatives
-
-
-  _createClass(CampaignList, [{
-    key: "componentDidMount",
-    value: //Get campaigns at the beginning
-    function componentDidMount() {
-      var _this2 = this;
-
+    _defineProperty(_assertThisInitialized(_this), "componentDidMount", function () {
       axios.get("/api/campaigns").then(function (response) {
         var campaigns = response.data.data;
 
-        _this2.setState({
+        _this.setState({
           campaigns: campaigns,
           error: null
         });
       })["catch"](function (error) {
-        _this2.setState({
+        _this.setState({
           error: error.message
         });
       })["finally"](function () {
-        _this2.setState({
+        _this.setState({
           isLoading: false
         });
       });
-    } //Render View
+    });
 
-  }, {
-    key: "render",
-    value: function render() {
-      var _this3 = this;
-
-      var _this$state = this.state,
+    _defineProperty(_assertThisInitialized(_this), "render", function () {
+      var _this$state = _this.state,
           isLoading = _this$state.isLoading,
           campaigns = _this$state.campaigns,
           error = _this$state.error,
@@ -6828,7 +6811,7 @@ var CampaignList = /*#__PURE__*/function (_Component) {
                   children: campaigns.map(function (campaign) {
                     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_CampaignRow__WEBPACK_IMPORTED_MODULE_1__["default"], {
                       campaign: campaign,
-                      onPreviewEvent: _this3.doPreviewCreatives
+                      onPreviewEvent: _this.doPreviewCreatives
                     }, campaign.id);
                   })
                 })]
@@ -6840,8 +6823,19 @@ var CampaignList = /*#__PURE__*/function (_Component) {
           }()
         })]
       });
-    }
-  }]);
+    });
+
+    _this.state = {
+      campaigns: {},
+      error: null,
+      isLoading: true,
+      previewCreatives: [],
+      showPreview: false
+    };
+    _this.doPreviewCreatives = _this.doPreviewCreatives.bind(_assertThisInitialized(_this));
+    return _this;
+  } //Show preview of creatives
+
 
   return CampaignList;
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
@@ -6868,10 +6862,6 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
@@ -6889,6 +6879,11 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
+
+/**
+ * Campaign Row Component
+ * It will draw a component in list view
+ */
 
 
 
@@ -6909,17 +6904,8 @@ var CampaignRow = /*#__PURE__*/function (_React$Component) {
       _this.props.onPreviewEvent(_this.state.campaign.creatives);
     });
 
-    _this.state = {
-      campaign: props.campaign
-    };
-    _this.onPreviewClick = _this.onPreviewClick.bind(_assertThisInitialized(_this));
-    return _this;
-  }
-
-  _createClass(CampaignRow, [{
-    key: "render",
-    value: function render() {
-      var campaign = this.state.campaign;
+    _defineProperty(_assertThisInitialized(_this), "render", function () {
+      var campaign = _this.state.campaign;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("tr", {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
           children: campaign.name
@@ -6937,7 +6923,7 @@ var CampaignRow = /*#__PURE__*/function (_React$Component) {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
               type: "button",
               className: "btn  btn-xs btn-secondary",
-              onClick: this.onPreviewClick,
+              onClick: _this.onPreviewClick,
               children: "Preview"
             })
           })
@@ -6947,15 +6933,21 @@ var CampaignRow = /*#__PURE__*/function (_React$Component) {
             role: "group",
             "aria-label": "First group",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
-              to: '/edit/' + campaign.id,
+              to: "/edit/" + campaign.id,
               className: "btn btn-primary btn-xs",
               children: "Edit"
             })
           })
         })]
       });
-    }
-  }]);
+    });
+
+    _this.state = {
+      campaign: props.campaign
+    };
+    _this.onPreviewClick = _this.onPreviewClick.bind(_assertThisInitialized(_this));
+    return _this;
+  }
 
   return CampaignRow;
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
@@ -6978,7 +6970,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var toastr__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! toastr */ "./node_modules/toastr/toastr.js");
+/* harmony import */ var toastr__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(toastr__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
@@ -6994,10 +6988,6 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToAr
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -7016,6 +7006,13 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
+
+
+/**
+ * Creative File Upload Component
+ * You can upload files using this component.
+ * It supports only jpg, png, gif images
+ */
 
 
 
@@ -7068,8 +7065,43 @@ var CreativeFileUpload = /*#__PURE__*/function (_React$Component) {
 
 
           _this.props.onUpdateFile(creatives);
+
+          toastr__WEBPACK_IMPORTED_MODULE_2___default().success(result.message);
+        } else {
+          toastr__WEBPACK_IMPORTED_MODULE_2___default().error(result.message);
         }
-      })["catch"](function (error) {})["finally"](function () {});
+      })["catch"](function (error) {
+        toastr__WEBPACK_IMPORTED_MODULE_2___default().error(error.message);
+      })["finally"](function () {});
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "render", function () {
+      var creatives = _this.state.creatives;
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("ul", {
+            className: "list-group creative-list",
+            children: creatives.map(function (creative, index) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
+                className: "list-group-item",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+                  src: creative
+                })
+              }, index);
+            })
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
+              children: "Note: allowed file format (*.jpg, *.png, *.gif)"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            type: "file",
+            multiple: true,
+            onChange: _this.onFileChange
+          })]
+        })]
+      });
     });
 
     _this.state = {
@@ -7078,38 +7110,6 @@ var CreativeFileUpload = /*#__PURE__*/function (_React$Component) {
     _this.onFileChange = _this.onFileChange.bind(_assertThisInitialized(_this));
     return _this;
   }
-
-  _createClass(CreativeFileUpload, [{
-    key: "render",
-    value: function render() {
-      var creatives = this.state.creatives;
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("ul", {
-            className: "list-group creative-list",
-            children: creatives.map(function (creative, index) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
-                className: "list-group-item",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-                  src: creative
-                })
-              }, index);
-            })
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-              children: "Note: allowed file format (*.jpg, *.png, *.gif)"
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-            type: "file",
-            multiple: true,
-            onChange: this.onFileChange
-          })]
-        })]
-      });
-    }
-  }]);
 
   return CreativeFileUpload;
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
@@ -7161,6 +7161,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+/**
+ * Creative Preview Component
+ * It will show the preview of creatives in a campaign.
+ * It will popup modal and show the creatives in slideshow.
+ */
+
 
 
 
@@ -7189,7 +7195,8 @@ var CreativePreview = /*#__PURE__*/function (_React$Component) {
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "componentDidUpdate", function (prevProps, prevState, snapshot) {
+    _defineProperty(_assertThisInitialized(_this), "componentDidUpdate", function (prevProps) {
+      //If you receive new props, it will render the component again
       if (prevProps.show !== _this.props.show) {
         _this.setState({
           show: _this.props.show,
@@ -7256,7 +7263,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var _components_App__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/App */ "./resources/js/components/App.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
- // import App component
 
  // render App component
 

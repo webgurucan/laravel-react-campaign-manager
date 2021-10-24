@@ -3,11 +3,15 @@ import { Link } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import moment from "moment";
 import CreativeFileUpload from "./CreativeFileUpload";
-import toastr from "toastr"
+import toastr from "toastr";
 
 import "react-datepicker/dist/react-datepicker.css";
 import "toastr/build/toastr.min.css";
 
+/**
+ * Campaign Form Component
+ * You can edit form including upload too
+ */
 export default class CampaignForm extends React.Component {
     constructor(props) {
         super(props);
@@ -24,6 +28,7 @@ export default class CampaignForm extends React.Component {
         this.handleFormSubmit = this.handleFormSubmit.bind(this);
     }
 
+    //Change Event Definition
     onChangeName = (evt) => {
         const { campaign } = this.state;
         campaign.name = evt.target.value;
@@ -63,15 +68,14 @@ export default class CampaignForm extends React.Component {
     //Handle form submit
     handleFormSubmit = (evt) => {
         evt.preventDefault();
-        const {campaign} = this.state;
+        const { campaign } = this.state;
         axios
             .post("/api/campaign/store", campaign)
             .then((response) => {
                 let result = response.data;
                 if (result.success === true) {
                     toastr["success"](result.message);
-                }
-                else {
+                } else {
                     toastr["error"](result.message);
                 }
             })
@@ -81,7 +85,7 @@ export default class CampaignForm extends React.Component {
             .finally(() => {});
     };
 
-    render() {
+    render = () => {
         let { campaign } = this.state;
 
         return (
@@ -164,7 +168,9 @@ export default class CampaignForm extends React.Component {
                         <Link
                             to="/"
                             className="btn btn-secondary float-right ml-2"
-                        >Cancel</Link>
+                        >
+                            Cancel
+                        </Link>
                         <button
                             type="submit"
                             className="btn btn-primary float-right"

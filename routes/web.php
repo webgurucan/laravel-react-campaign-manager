@@ -13,5 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Default view
 Route::view('/{path?}', 'campaign.index');
 Route::view('/edit/{id?}', 'campaign.index');

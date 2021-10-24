@@ -4,8 +4,11 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import CampaignList from "./CampaignList";
 import CampaignContainer from "./CampaignContainer";
 
+/**
+ * Main APP Component
+ */
 export default class App extends Component {
-    render() {
+    render = () => {
         return (
             <Router>
                 <div className="container">
@@ -17,10 +20,10 @@ export default class App extends Component {
                                         <CampaignList />
                                     </Route>
                                     <Route path="/add">
-                                        <CampaignContainer/>
+                                        <CampaignContainer />
                                     </Route>
                                     <Route path="/edit/:campaignId">
-                                        <CampaignContainer/>
+                                        <CampaignContainer />
                                     </Route>
                                 </Switch>
                             </div>
@@ -29,5 +32,5 @@ export default class App extends Component {
                 </div>
             </Router>
         );
-    }
+    };
 }

@@ -1,6 +1,4 @@
 import ReactDOM from "react-dom";
-
-// import App component
 import App from "./components/App";
 
 // render App component

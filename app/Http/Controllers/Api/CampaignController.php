@@ -24,8 +24,7 @@ class CampaignController extends Controller
                 "success" => true,
                 "data" => $campaign->toArray(),
             ];
-        }
-        else {
+        } else {
             $response = [
                 "success" => false,
                 "message" => "There is no such campaign.",
@@ -33,26 +32,25 @@ class CampaignController extends Controller
         }
 
         return response()->json($response);
-        
     }
     /**
      * Store Campaign
      * @param Request $request
      * @return json return result
      */
-    public function store(Request $request) 
+    public function store(Request $request)
     {
         $param = $request->all();
 
-        $validator = Validator::make($request->all(), [ 
+        $validator = Validator::make($request->all(), [
             'name' => 'required',
         ]);
-        
-        if ($validator->fails()) {          
+
+        if ($validator->fails()) {
             return response()->json([
                 "success" => false,
                 'message' => $validator->errors()
-            ], 401);                        
+            ], 401);
         }
 
         $campaignData = null;
@@ -61,12 +59,10 @@ class CampaignController extends Controller
             $campaignData = Campaign::find($param['id']);
             if (!$campaignData) {
                 $campaignData = new Campaign;
-            }
-            else {
+            } else {
                 $updateFlag = true;
             }
-        }
-        else {
+        } else {
             $campaignData = new Campaign;
         }
 
@@ -79,16 +75,14 @@ class CampaignController extends Controller
                     "success" => true,
                     "message" => "You've updated a campaign successfully.",
                 ];
-            }
-            else {
+            } else {
                 $response = [
                     "success" => true,
                     "message" => "You've add a campaign successfully.",
-                    
+
                 ];
             }
-        }
-        else {
+        } else {
             $response = [
                 "success" => false,
                 "message" => "Something went wrong",
@@ -105,18 +99,17 @@ class CampaignController extends Controller
      */
     public function upload(Request $request)
     {
-
-        $validator = Validator::make($request->all(), [ 
+        $validator = Validator::make($request->all(), [
             'file' => 'required',
             'file.*' => 'required|mimes:jpeg,png,gif,jpg',
         ]);
-        
-        if ($validator->fails()) {          
+
+        if ($validator->fails()) {
             return response()->json([
                 "success" => false,
                 'message' => $validator->errors()
-            ], 401);                        
-        }  
+            ], 401);
+        }
 
         $fileNameList = [];
         if ($request->hasfile('file')) {
@@ -131,6 +124,5 @@ class CampaignController extends Controller
                 "files" => $fileNameList
             ]);
         }
-        
     }
 }
