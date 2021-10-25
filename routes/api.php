@@ -24,9 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 //Get all campaigns
-Route::get('/campaigns', function () {
-    return CampaignResource::collection(Campaign::orderBy('name')->get());
-});
+Route::get('/campaigns', [CampaignController::class, 'index']);
 
 //Get a campaign
 Route::get('/campaign/{id}', [CampaignController::class, 'view']);

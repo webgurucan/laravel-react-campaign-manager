@@ -36,7 +36,7 @@ export default class CampaignList extends Component {
         axios
             .get("/api/campaigns")
             .then((response) => {
-                const campaigns = response.data.data;
+                const campaigns = response.data;
                 this.setState({ campaigns, error: null });
             })
             .catch((error) => {
@@ -63,9 +63,9 @@ export default class CampaignList extends Component {
                 </div>
                 <div className="card-body">
                     {(() => {
-                        if (isLoading) return <h3>Loading...</h3>;
+                        if (isLoading) return <h5>Loading...</h5>;
                         else if (error)
-                            return <h3 className="error">{error}</h3>;
+                            return <h5 className="text-danger">{error}</h5>;
                         else if (campaigns.length === 0)
                             return (
                                 <h3 className="error text-center">No data</h3>

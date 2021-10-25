@@ -71,9 +71,9 @@ class CampaignContainer extends React.Component {
                 </div>
                 <div className="card-body">
                     {(() => {
-                        if (isLoading) return <h3>Loading...</h3>;
+                        if (isLoading) return <h5>Loading...</h5>;
                         else if (error)
-                            return <h3 className="error">{error}</h3>;
+                            return <h5 className="text-danger">{error}</h5>;
                         else return <CampaignForm campaign={campaign} />;
                     })()}
                 </div>

@@ -6365,10 +6365,10 @@ var CampaignContainer = /*#__PURE__*/function (_React$Component) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
           className: "card-body",
           children: function () {
-            if (isLoading) return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+            if (isLoading) return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h5", {
               children: "Loading..."
-            });else if (error) return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
-              className: "error",
+            });else if (error) return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h5", {
+              className: "text-danger",
               children: error
             });else return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_CampaignForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
               campaign: campaign
@@ -6741,7 +6741,7 @@ var CampaignList = /*#__PURE__*/function (_Component) {
 
     _defineProperty(_assertThisInitialized(_this), "componentDidMount", function () {
       axios.get("/api/campaigns").then(function (response) {
-        var campaigns = response.data.data;
+        var campaigns = response.data;
 
         _this.setState({
           campaigns: campaigns,
@@ -6778,10 +6778,10 @@ var CampaignList = /*#__PURE__*/function (_Component) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: "card-body",
           children: function () {
-            if (isLoading) return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
+            if (isLoading) return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h5", {
               children: "Loading..."
-            });else if (error) return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
-              className: "error",
+            });else if (error) return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h5", {
+              className: "text-danger",
               children: error
             });else if (campaigns.length === 0) return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
               className: "error text-center",

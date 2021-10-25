@@ -11,6 +11,15 @@ class CampaignController extends Controller
 {
 
     /**
+     * Display a listing of the resource.
+     * @return json response
+     */
+    public function index()
+    {
+        return response()->json(Campaign::orderBy('name')->get());
+    }
+
+    /**
      * Return Campaign in json format
      * @param integer $id
      * @return json
