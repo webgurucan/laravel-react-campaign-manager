@@ -85,6 +85,63 @@ php artisan db:seed
 ```
 ## How to use on Laradock (Docker)
 
+git clone https://github.com/anydev1103/laravel-react-campaign-manager.git
+cd laravel-react-campaign-manager
+git clone https://github.com/Laradock/laradock.git
+cd laradock
+cp .env.example .env
+
+sudo apt install docker-compose
+sudo docker-compose up -d nginx mysql phpmyadmin workspace  //Running docker
+sudo docker-compose up -d --build nginx mysql
+sudo docker-compose exec workspace bash //then you can see it works
+
+
+//Create Database after running docker
+sudo docker-compose exec mysql bash
+  mysql -uroot -proot
+  create database advertising;
+  exit
+exit
+
+sudo docker-compose exec workspace bash
+
+composer install
+		npm install //Dev purpose
+artisan key:generate
+artisan storage:link
+
+set DB_HOST=mysql in .env
+
+artisan migrate
+artisan db:seed
+artisan test
+artisan db:seed
+
+
+
+You can access mysql
+http://localhost:8081/ 
+
+
+
+
+
+docker-compose up -d --build nginx mysql phpmyadmin
+
+docker-compose down
+docker-compose up -d --build nginx phpmyadmin
+
+docker-compose exec mysql bash
+
+  mysql -uroot -proot
+  create database advertising;
+  exit
+
+exit
+
+
+
 ## How to use
 Open your browser and access http://localhost
 
