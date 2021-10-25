@@ -133,5 +133,11 @@ class CampaignController extends Controller
                 "files" => $fileNameList
             ]);
         }
+        else {
+            return response()->json([
+                "success" => false,
+                "message" => "Something went wrong",
+            ]);
+        }
     }
 }

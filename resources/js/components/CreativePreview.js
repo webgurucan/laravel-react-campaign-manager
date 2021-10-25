@@ -29,9 +29,9 @@ export default class CreativePreview extends Component {
         this.setState({ show: true });
     }
 
-    componentDidUpdate(prevProps) {
+    componentDidUpdate(prevProps, prevState, snapshot) {
         //If you receive new props, it will render the component again
-        if (prevProps.show !== this.props.show) {
+        if (prevState.show !== this.props.show) {
             this.setState({
                 show: this.props.show,
                 creatives: this.props.creatives,

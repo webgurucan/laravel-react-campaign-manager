@@ -7244,9 +7244,9 @@ var CreativePreview = /*#__PURE__*/function (_Component) {
     }
   }, {
     key: "componentDidUpdate",
-    value: function componentDidUpdate(prevProps) {
+    value: function componentDidUpdate(prevProps, prevState, snapshot) {
       //If you receive new props, it will render the component again
-      if (prevProps.show !== this.props.show) {
+      if (prevState.show !== this.props.show) {
         this.setState({
           show: this.props.show,
           creatives: this.props.creatives
