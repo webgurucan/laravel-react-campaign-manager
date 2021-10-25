@@ -80,7 +80,7 @@ artisan db:seed
 ```
 
 ## How to test?
-- Run the following command to do unit test and restore database.
+- Run the following command to do unit test.
 4 unit tests should be passed.
 ```cmd
 artisan test
