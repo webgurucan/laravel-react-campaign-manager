@@ -11,6 +11,7 @@ import "toastr/build/toastr.min.css";
 /**
  * Campaign Form Component
  * You can edit form including upload too
+ * @author Ron Bo <anydev1103@gmail.com>
  */
 export default class CampaignForm extends Component {
     constructor(props) {

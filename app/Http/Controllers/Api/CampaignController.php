@@ -7,6 +7,10 @@ use App\Models\Campaign;
 use App\Http\Controllers\Controller;
 use Validator, Storage;
 
+/**
+ * Campaign Controller 
+ * @author Ron Bo <anydev1103@gmail.com>
+ */
 class CampaignController extends Controller
 {
 
@@ -132,8 +136,7 @@ class CampaignController extends Controller
                 "message" => "File successfully uploaded",
                 "files" => $fileNameList
             ]);
-        }
-        else {
+        } else {
             return response()->json([
                 "success" => false,
                 "message" => "Something went wrong",

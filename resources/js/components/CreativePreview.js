@@ -9,6 +9,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
  * Creative Preview Component
  * It will show the preview of creatives in a campaign.
  * It will popup modal and show the creatives in slideshow.
+ * @author Ron Bo <anydev1103@gmail.com>
  */
 export default class CreativePreview extends Component {
     constructor(props) {

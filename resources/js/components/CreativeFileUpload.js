@@ -6,6 +6,7 @@ import toastr from "toastr";
  * Creative File Upload Component
  * You can upload files using this component.
  * It supports only jpg, png, gif images
+ * @author Ron Bo <anydev1103@gmail.com>
  */
 export default class CreativeFileUpload extends Component {
     constructor(props) {

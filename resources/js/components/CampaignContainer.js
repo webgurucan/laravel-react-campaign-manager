@@ -6,6 +6,7 @@ import CampaignForm from "./CampaignForm";
 /**
  * Campaign Conainter Component
  * It is wrapper of campaign form.
+ * @author Ron Bo <anydev1103@gmail.com>
  */
 class CampaignContainer extends Component {
     constructor(props) {

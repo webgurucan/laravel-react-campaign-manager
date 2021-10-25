@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 /**
  * Campaign Row Component
  * It will draw a component in list view
+ * @author Ron Bo <anydev1103@gmail.com>
  */
 export default class CampaignRow extends Component {
     constructor(props) {

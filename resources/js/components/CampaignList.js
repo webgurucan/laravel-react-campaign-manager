@@ -8,6 +8,7 @@ import CreativePreview from "./CreativePreview";
  * Campaign List Component
  * It will get all campaigns from server and render on frontend.
  * It will render campaign in table format
+ * @author Ron Bo <anydev1103@gmail.com>
  */
 export default class CampaignList extends Component {
     constructor(props) {

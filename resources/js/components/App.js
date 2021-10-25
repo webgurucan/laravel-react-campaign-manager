@@ -6,6 +6,7 @@ import CampaignContainer from "./CampaignContainer";
 
 /**
  * Main APP Component
+ * @author Ron Bo <anydev1103@gmail.com>
  */
 export default class App extends Component {
     render() {

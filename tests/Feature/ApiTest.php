@@ -7,6 +7,10 @@ use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;
 
+/**
+ * API Tester
+ * @author Ron Bo <anydev1103@gmail.com>
+ */
 class ApiTest extends TestCase
 {
     use RefreshDatabase;
