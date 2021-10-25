@@ -1,11 +1,11 @@
-import React from "react";
+import { Component } from "react";
 import { Link } from "react-router-dom";
 
 /**
  * Campaign Row Component
  * It will draw a component in list view
  */
-export default class CampaignRow extends React.Component {
+export default class CampaignRow extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -14,11 +14,11 @@ export default class CampaignRow extends React.Component {
         this.onPreviewClick = this.onPreviewClick.bind(this);
     }
 
-    onPreviewClick = () => {
+    onPreviewClick() {
         this.props.onPreviewEvent(this.state.campaign.creatives);
-    };
+    }
 
-    render = () => {
+    render() {
         let { campaign } = this.state;
 
         return (

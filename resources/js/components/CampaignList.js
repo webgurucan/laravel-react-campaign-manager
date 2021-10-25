@@ -23,16 +23,16 @@ export default class CampaignList extends Component {
     }
 
     //Show preview of creatives
-    doPreviewCreatives = (creatives) => {
+    doPreviewCreatives(creatives) {
         if (Array.isArray(creatives) && creatives.length > 0) {
             this.setState({ previewCreatives: creatives, showPreview: true });
         } else {
             this.setState({ previewCreatives: [], showPreview: false });
         }
-    };
+    }
 
     //Get campaigns at the beginning
-    componentDidMount = () => {
+    componentDidMount() {
         axios
             .get("/api/campaigns")
             .then((response) => {
@@ -45,10 +45,10 @@ export default class CampaignList extends Component {
             .finally(() => {
                 this.setState({ isLoading: false });
             });
-    };
+    }
 
     //Render View
-    render = () => {
+    render() {
         const { isLoading, campaigns, error, showPreview, previewCreatives } =
             this.state;
         return (
@@ -107,5 +107,5 @@ export default class CampaignList extends Component {
                 </div>
             </>
         );
-    };
+    }
 }

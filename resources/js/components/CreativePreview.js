@@ -1,4 +1,4 @@
-import React from "react";
+import { Component } from "react";
 import { Modal } from "react-bootstrap";
 import { Slide } from "react-slideshow-image";
 
@@ -10,7 +10,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
  * It will show the preview of creatives in a campaign.
  * It will popup modal and show the creatives in slideshow.
  */
-export default class CreativePreview extends React.Component {
+export default class CreativePreview extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -21,15 +21,15 @@ export default class CreativePreview extends React.Component {
         this.handleShow = this.handleShow.bind(this);
     }
 
-    handleClose = () => {
+    handleClose() {
         this.setState({ show: false });
-    };
+    }
 
-    handleShow = () => {
+    handleShow() {
         this.setState({ show: true });
-    };
+    }
 
-    componentDidUpdate = (prevProps) => {
+    componentDidUpdate(prevProps) {
         //If you receive new props, it will render the component again
         if (prevProps.show !== this.props.show) {
             this.setState({
@@ -37,9 +37,9 @@ export default class CreativePreview extends React.Component {
                 creatives: this.props.creatives,
             });
         }
-    };
+    }
 
-    render = () => {
+    render() {
         let { show, creatives } = this.state;
 
         return (
@@ -65,5 +65,5 @@ export default class CreativePreview extends React.Component {
                 </Modal>
             </>
         );
-    };
+    }
 }

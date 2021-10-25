@@ -1,4 +1,4 @@
-import React from "react";
+import { Component } from "react";
 import { Link } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import moment from "moment";
@@ -12,7 +12,7 @@ import "toastr/build/toastr.min.css";
  * Campaign Form Component
  * You can edit form including upload too
  */
-export default class CampaignForm extends React.Component {
+export default class CampaignForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -29,44 +29,44 @@ export default class CampaignForm extends React.Component {
     }
 
     //Change Event Definition
-    onChangeName = (evt) => {
+    onChangeName(evt) {
         const { campaign } = this.state;
         campaign.name = evt.target.value;
         this.setState({ campaign });
-    };
+    }
 
-    onChangeFromDate = (date) => {
+    onChangeFromDate(date) {
         const { campaign } = this.state;
         campaign.from = moment(date).format("MM/DD/YYYY");
         this.setState({ campaign });
-    };
+    }
 
-    onChangeToDate = (date) => {
+    onChangeToDate(date) {
         const { campaign } = this.state;
         campaign.to = moment(date).format("MM/DD/YYYY");
         this.setState({ campaign });
-    };
+    }
 
-    onChangeDailyBudget = (evt) => {
+    onChangeDailyBudget(evt) {
         const { campaign } = this.state;
         campaign.daily_budget = evt.target.value;
         this.setState({ campaign });
-    };
+    }
 
-    onChangeTotalBudget = (evt) => {
+    onChangeTotalBudget(evt) {
         const { campaign } = this.state;
         campaign.total_budget = evt.target.value;
         this.setState({ campaign });
-    };
+    }
 
-    updateCreatives = (creatives) => {
+    updateCreatives(creatives) {
         const { campaign } = this.state;
         campaign.creatives = creatives;
         this.setState({ campaign });
-    };
+    }
 
     //Handle form submit
-    handleFormSubmit = (evt) => {
+    handleFormSubmit(evt) {
         evt.preventDefault();
         const { campaign } = this.state;
         axios
@@ -83,9 +83,9 @@ export default class CampaignForm extends React.Component {
                 toastr["error"](error.message);
             })
             .finally(() => {});
-    };
+    }
 
-    render = () => {
+    render() {
         let { campaign } = this.state;
 
         return (
@@ -181,5 +181,5 @@ export default class CampaignForm extends React.Component {
                 </div>
             </div>
         );
-    };
+    }
 }

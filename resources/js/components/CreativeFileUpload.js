@@ -1,4 +1,4 @@
-import React from "react";
+import { Component } from "react";
 import axios from "axios";
 import toastr from "toastr";
 
@@ -7,7 +7,7 @@ import toastr from "toastr";
  * You can upload files using this component.
  * It supports only jpg, png, gif images
  */
-export default class CreativeFileUpload extends React.Component {
+export default class CreativeFileUpload extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -17,7 +17,7 @@ export default class CreativeFileUpload extends React.Component {
         this.onFileChange = this.onFileChange.bind(this);
     }
 
-    onFileChange = (event) => {
+    onFileChange(event) {
         let files = [...event.target.files];
 
         files = files.filter(
@@ -34,9 +34,9 @@ export default class CreativeFileUpload extends React.Component {
         } else {
             //No files selected.
         }
-    };
+    }
 
-    uploadFiles = (files) => {
+    uploadFiles(files) {
         // Create an object of formData
         const formData = new FormData();
 
@@ -67,9 +67,9 @@ export default class CreativeFileUpload extends React.Component {
                 toastr["error"](error.message);
             })
             .finally(() => {});
-    };
+    }
 
-    render = () => {
+    render() {
         let { creatives } = this.state;
 
         return (
@@ -91,5 +91,5 @@ export default class CreativeFileUpload extends React.Component {
                 </div>
             </>
         );
-    };
+    }
 }

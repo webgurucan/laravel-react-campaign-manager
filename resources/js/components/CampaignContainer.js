@@ -1,4 +1,4 @@
-import React from "react";
+import { Component } from "react";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router";
 import CampaignForm from "./CampaignForm";
@@ -7,7 +7,7 @@ import CampaignForm from "./CampaignForm";
  * Campaign Conainter Component
  * It is wrapper of campaign form.
  */
-class CampaignContainer extends React.Component {
+class CampaignContainer extends Component {
     constructor(props) {
         super(props);
 
@@ -30,7 +30,7 @@ class CampaignContainer extends React.Component {
     }
 
     //Get a campaign data at the beginning
-    componentDidMount = () => {
+    componentDidMount() {
         const { campaignId } = this.state;
         if (campaignId !== "") {
             //You should get campaign from server.
@@ -55,9 +55,9 @@ class CampaignContainer extends React.Component {
         } else {
             this.setState({ isLoading: false });
         }
-    };
+    }
 
-    render = () => {
+    render() {
         let { campaignId, campaign, isLoading, error } = this.state;
         return (
             <>
@@ -79,7 +79,7 @@ class CampaignContainer extends React.Component {
                 </div>
             </>
         );
-    };
+    }
 }
 
 export default withRouter(CampaignContainer);

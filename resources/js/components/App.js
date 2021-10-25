@@ -8,7 +8,7 @@ import CampaignContainer from "./CampaignContainer";
  * Main APP Component
  */
 export default class App extends Component {
-    render = () => {
+    render() {
         return (
             <Router>
                 <div className="container">
@@ -32,5 +32,5 @@ export default class App extends Component {
                 </div>
             </Router>
         );
-    };
+    }
 }
