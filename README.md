@@ -24,7 +24,7 @@ You can do the following commands in Terminal.
 #### 1. Install Source and Laradock
 - Go to a directory that you are going to install this project. And clone the project.
 ```cmd
-git clone https://github.com/anydev1103/laravel-react-campaign-manager.git
+git clone https://github.com/webgurucan/laravel-react-campaign-manager.git
 ```
 - Go to your project directory and create .env from .env.sample
 ```cmd
